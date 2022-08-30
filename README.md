@@ -1,5 +1,5 @@
 # About the project
-A Spotify queue app that users can reuqest a track to the host in a joined room.
+A Spotify queue app that let users reuqest a track to the host in a joined room.
 
 # Feautures (Basic)
 - Login with your Spotify Account
