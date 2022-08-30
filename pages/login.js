@@ -17,6 +17,9 @@ const Login = () => {
 
   const getAccessToken = async (code) => {
     const result = await axios.post("/api/auth/access_token", { code });
+
+    console.log(result);
+
     if (typeof window !== "undefined") {
       sessionStorage.setItem("accessToken", result.data.accessToken);
       sessionStorage.setItem("refreshToken", result.data.refreshToken);
