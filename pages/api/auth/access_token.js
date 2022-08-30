@@ -1,5 +1,5 @@
 const SpotifyWebApi = require("spotify-web-api-node");
-import { db } from "../../../utils/db";
+import {db} from "../../../utils/db"
 
 export default function handler(req, res) {
   if (req.method === "POST") {
@@ -18,16 +18,16 @@ export default function handler(req, res) {
         const user = await spotify.getMe();
 
         // Save to db if not existed
-        // const userAccount = await db.user.upsert({
-        //   where: { spotifyId: user.body.id },
-        //   update: {},
-        //   create: {
-        //     displayName: user.body.display_name,
-        //     email: user.body.email,
-        //     spotifyId: user.body.id,
-        //     avatar: user.body.images[0].url || "",
-        //   },
-        // });
+        const userAccount = await db.user.upsert({
+          where: { spotifyId: user.body.id },
+          update: {},
+          create: {
+            displayName: user.body.display_name,
+            email: user.body.email,
+            spotifyId: user.body.id,
+            avatar: user.body.images[0].url || "",
+          },
+        });
 
         // Final response
         try {
@@ -35,19 +35,12 @@ export default function handler(req, res) {
             accessToken: auth.body.access_token,
             refreshToken: auth.body.refresh_token,
             expiresIn: auth.body.expires_in,
-            // currentUser: {
-            //   id: userAccount.id,
-            //   displayName: user.body.display_name,
-            //   email: user.body.email,
-            //   spotifyId: user.body.id,
-            //   avatar: user.body.images[0].url || "",
-            // },
             currentUser: {
-              id: 1,
-              displayName: "asd",
-              email: "asdasd",
-              spotifyId: "asdasdasd",
-              avatar: "asdsadsa",
+              id: userAccount.id,
+              displayName: user.body.display_name,
+              email: user.body.email,
+              spotifyId: user.body.id,
+              avatar: user.body.images[0].url || "",
             },
           });
         } catch (error) {
