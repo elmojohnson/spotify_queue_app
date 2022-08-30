@@ -24,7 +24,7 @@ const Home = () => {
             <div className="w-md">
               <h1 className="text-2xl font-bold">Create a room</h1>
               <div className="py-6">
-                It's easy. Just name your room and add members when created.
+                Just name your room and add members when created.
               </div>
               <button
                 className="btn btn-primary btn-sm"

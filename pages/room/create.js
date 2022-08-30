@@ -8,7 +8,7 @@ import * as Yup from "yup";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-const create = () => {
+const Create = () => {
   const { currentUser } = useContext(AuthContext);
   const router = useRouter();
 
@@ -73,4 +73,4 @@ const create = () => {
   );
 };
 
-export default create;
+export default Create;
