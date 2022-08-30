@@ -42,6 +42,13 @@ export default function handler(req, res) {
             //   spotifyId: user.body.id,
             //   avatar: user.body.images[0].url || "",
             // },
+            currentUser: {
+              id: 1,
+              displayName: "asd",
+              email: "asdasd",
+              spotifyId: "asdasdasd",
+              avatar: "asdsadsa",
+            },
           });
         } catch (error) {
           res.status(401).json(error);
