@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id          Int      @id @default(autoincrement())
+  displayName String
+  email       String   @unique
+  avatar      String
+  spotifyId   String   @unique
+  joinedAt    DateTime @default(now())
+
+  // Relationships
+  rooms  Room[] // User can be a host to many rooms
+  Member Member[] // User can join many rooms and have multiple membership
+}
+
+model Room {
+  id        Int      @id @default(autoincrement())
+  roomName  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relationships
+  User   User?    @relation(fields: [hostId], references: [id])
+  hostId Int? // One user can only be a host
+  Member Member[] // A room can have many members
+  Track  Track[]
+}
+
+model Member {
+  id       Int      @id @default(autoincrement())
+  isHost   Boolean  @default(false)
+  joinedAt DateTime @default(now())
+
+  // Relationships
+  User   User?   @relation(fields: [userId], references: [id])
+  userId Int? // User is a member of a room
+  Room   Room?   @relation(fields: [roomId], references: [id])
+  roomId Int? // Room where a user is member
+  Track  Track[]
+}
+
+model Track {
+  id          Int      @id @default(autoincrement())
+  name        String?
+  artists     String?
+  album       String?
+  albumImg    String?
+  isQueued    Boolean  @default(false)
+  requestedBy String?
+  uri         String?
+  Room        Room?    @relation(fields: [roomId], references: [id])
+  roomId      Int?
+  Member      Member?  @relation(fields: [memberId], references: [id])
+  memberId    Int?
+  addedAt     DateTime @default(now())
+}

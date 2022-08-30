@@ -9,12 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@prisma/client": "^4.2.1",
+    "axios": "^0.27.2",
+    "axios-auth-refresh": "^3.3.3",
+    "daisyui": "^2.24.0",
+    "formik": "^2.2.9",
+    "moment": "^2.29.4",
     "next": "12.2.5",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-icons": "^4.4.0",
+    "react-responsive": "^9.0.0-beta.10",
+    "react-toastify": "^9.0.8",
+    "spotify-web-api-node": "^5.0.2",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.8",
     "eslint": "8.22.0",
-    "eslint-config-next": "12.2.5"
+    "eslint-config-next": "12.2.5",
+    "postcss": "^8.4.16",
+    "prisma": "^4.2.1",
+    "tailwindcss": "^3.1.8"
   }
 }
