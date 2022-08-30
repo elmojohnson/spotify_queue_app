@@ -1,5 +1,5 @@
 const SpotifyWebApi = require("spotify-web-api-node");
-import {db} from "../../../utils/db"
+import { db } from "../../../utils/db";
 
 export default function handler(req, res) {
   if (req.method === "POST") {
