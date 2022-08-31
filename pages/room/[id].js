@@ -35,7 +35,7 @@ const Room = () => {
     },
     {
       name: "Info",
-      component: <Info />,
+      component: <Info isHost={currentUser.id === room.hostId} />,
     }
   ];
 
