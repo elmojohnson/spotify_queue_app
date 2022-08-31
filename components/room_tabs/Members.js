@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import MemberItem from "../MemberItem";
 import SearchUser from "../SearchUser";
 
-const Members = () => {
+const Members = ({ isHost }) => {
   const router = useRouter();
   const [members, setMembers] = useState([]);
   const [isLoading, setLoading] = useState(false);
@@ -26,13 +26,15 @@ const Members = () => {
   }, [router]);
   return (
     <div className="flex flex-col space-y-4">
-      <div className="collapse collapse-plus bg-white rounded-lg">
-        <input type="checkbox" className="peer" />
-        <div className="collapse-title">Add new member</div>
-        <div className="collapse-content">
-          <SearchUser />
+      {isHost && (
+        <div className="collapse collapse-plus bg-white rounded-lg">
+          <input type="checkbox" className="peer" />
+          <div className="collapse-title">Add new member</div>
+          <div className="collapse-content">
+            <SearchUser />
+          </div>
         </div>
-      </div>
+      )}
 
       {isLoading ? (
         <p>Loading...</p>

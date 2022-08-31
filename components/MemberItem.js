@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useRouter } from "next/router";
 import React, { useContext, useState } from "react";
 import AuthContext from "../contexts/AuthContext";
 
@@ -11,6 +12,7 @@ const MemberItem = ({
   isHost,
   hostId,
 }) => {
+  const router = useRouter();
   const { currentUser } = useContext(AuthContext);
   const [isRemoving, setRemoving] = useState(false);
   const [isRemoved, setRemoved] = useState(false);
@@ -27,6 +29,7 @@ const MemberItem = ({
     }
 
     setRemoving(false);
+    router.reload();
   };
 
   return (

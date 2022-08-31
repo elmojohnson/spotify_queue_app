@@ -24,6 +24,7 @@ const SearchUserItem = ({ id, name, avatar, spotifyId, isMember }) => {
     }
 
     setAdding(false);
+    router.reload();
   };
 
   useEffect(() => {
