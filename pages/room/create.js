@@ -20,12 +20,16 @@ const Create = () => {
   });
 
   const createRoom = async (values) => {
-    const newRoom = await axios.post("/api/rooms/create", {roomName: values.roomName, hostId: currentUser.id});
+    const result = await axios.post("/api/rooms/create", {
+      roomName: values.roomName,
+      hostId: currentUser.id,
+    });
+
 
     try {
-      router.push(`/room/${newRoom.data.id}`)
+      router.push(`/room/${result.data.id}`);
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   };
 

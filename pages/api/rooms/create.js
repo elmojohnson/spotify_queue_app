@@ -20,7 +20,7 @@ export default async function handler(req, res) {
     });
 
     try {
-      res.status(200).json({ id: newRoom.roomName });
+      res.status(200).json({ id: newRoom.id });
     } catch (error) {
       res.status(401).json({ error });
     }

@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
     const room = await db.room.findUnique({
       where: {
-        id: parseInt(roomId[0]),
+        id: parseInt(roomId),
       },
       include: {
         Member: true,

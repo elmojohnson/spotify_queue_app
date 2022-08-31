@@ -32,11 +32,16 @@ const Room = () => {
     {
       name: "Members",
       component: <Members />,
+    },
+    {
+      name: "Info",
+      component: <Info />,
     }
   ];
 
   // Get room info
   const getRoom = async () => {
+    console.log("ID: " + router.query.id)
     setLoading(true);
     const result = await axios.get(`/api/rooms/${router.query.id}`);
 
