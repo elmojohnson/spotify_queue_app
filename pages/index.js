@@ -35,23 +35,6 @@ const Home = () => {
             </div>
           </div>
         </div>
-
-        <div className="hero min-h-80 bg-base-200 rounded-xl">
-          <div className="hero-content text-center">
-            <div className="max-w-md">
-              <h1 className="text-2xl font-bold text-">Join a room</h1>
-              <div className="py-6">
-                Find your ID, copy, and send it to your friend.
-              </div>
-              <button
-                className="btn btn-primary btn-sm"
-                onClick={() => router.push("/room/create")}
-              >
-                Create a room
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </Wrapper>
   );
